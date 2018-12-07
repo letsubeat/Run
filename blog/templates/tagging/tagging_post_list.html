@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}tagging post list{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>Post for Tag - {{ tag.name }}</h1>
+
+    {% for post in object_list %}
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        {{ post.modified|date:"N d, Y" }}
+        <p>{{ post.description }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

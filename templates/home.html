@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}home.html{% endblock %}
+
+{% load static %}
+{% block extrastyle %}{% static 'css/home.css' %}{% endblock %}
+
+{% block content %}
+    <div id="content_home">
+        <div id="homeimg">
+            <a href="/"><img src="{% static 'image/sunset.jpg' %}" style="height: 256px;"></a>
+        </div>
+        <h4 style="margin:0;">This is django powered website.</h4>
+
+        <h2>Select Application</h2>
+        <table id="applist">
+            <tr>
+                <td><strong><a href="{% url 'bookmark-index' %}">Bookmark</a></strong></td>
+                <td>You can write your own post and share to others</td>
+                <td class="Edit"><i><a href="#">Add</a></i></td>
+                <td class="Edit"><i><a href="#">Change</a></i></td>
+            </tr>
+            <tr>
+                <td><strong><a href="{% url 'post-index' %}">Blog</a></strong></td>
+                <td>You can write your own post and share to others</td>
+                <td class="Edit"><i><a href="#">Add</a></i></td>
+                <td class="Edit"><i><a href="#">Change</a></i></td>
+            </tr>
+            <tr>
+                <td><strong><a href="#">Photo</a></strong></td>
+                <td>You can write your own post and share to others</td>
+                <td class="Edit"><i><a href="#">Add</a></i></td>
+                <td class="Edit"><i><a href="#">Change</a></i></td>
+            </tr>
+        </table>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+    &copy; noel 2018
+    </div>
+{% endblock %}

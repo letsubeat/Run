@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Django Run{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+</head>
+<body>
+    <div id="header">
+        <h2 class="maintitle">Easy django web dev</h2>
+        <h4 class="welcome">Welcome, <a href="#">park</a> / <a href="#">Change Password</a> / <a href="#">Logout</a></h4>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'bookmark-index' %}">Bookmark</a></li>
+            <li><a href="{% url 'post-index' %}">Blog</a></li>
+            <li><a href="#">Photo</a></li>
+            <li><a href="#">Add&bigtriangledown;</a>
+                <ul>
+                    <li><a href="#">Bookmark</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Photo</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Change&bigtriangledown;</a>
+                <ul>
+                    <li><a href="#">Bookmark</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Photo</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'post_archive' %}">Archive</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+            <li><a href="/admin/">Admin</a></li>
+        </ul>
+    </div>
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+</body>
+</html>

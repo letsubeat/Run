@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}post detail{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h2>{{ object.title }}</h2>
+
+    <p class="other-posts">
+        {% if object.get_previous_by_modified %}
+        <a href="{{ object.get_previous_post.get_absolute_url }}" title="View previous post">&laquo;-{{ object.get_previous_post }}</a>
+        {% endif %}
+
+        {% if object.get_next_by_modified %}
+        <a href="{{ object.get_next_post.get_absolute_url }}" title="View next post">{{ object.get_next_post }}-&raquo;</a>
+        {% endif %}
+    </p>
+
+    <p class="date">{{ object.modified|date:"j F Y" }}</p>
+
+    <div class="body">
+        {{ object.content|linebreaks }}
+    </div>
+
+    <div>
+        <strong>Tags : </strong>
+        {% load tagging_tags %}
+        {% tags_for_object object as tags %}
+        {% for tag in tags %}
+        <a href="{% url 'tagged-object-list' tag.name %}">{{ tag.name }}</a>
+        {% endfor %}
+        <a href="{% url 'tag-cloud' %}">{ TagCloud }</a>
+    </div>
+</div>
+{% endblock %}

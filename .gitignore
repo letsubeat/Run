@@ -1,0 +1,15 @@
+# venv
+/run-venv
+
+# pyc
+*.pyc
+
+# db
+db.sqlite3
+
+# .idea
+/.idea
+
+# migration
+*/migrations
+
